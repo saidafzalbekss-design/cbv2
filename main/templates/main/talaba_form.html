@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Talaba formasi</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: 60px auto; padding: 0 20px; background: #f0f2f5; }
+        .container { background: white; border-radius: 10px; padding: 35px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; margin-bottom: 25px; }
+        p { margin: 14px 0; }
+        label { font-weight: bold; display: block; margin-bottom: 5px; color: #444; }
+        input[type=text], input[type=number] { width: 100%; padding: 9px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { margin-top: 20px; padding: 11px 28px; background: #27ae60; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 15px; }
+        button:hover { background: #219150; }
+        a { color: #2980b9; text-decoration: none; display: inline-block; margin-top: 15px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>{% if object %}✏️ Tahrirlash{% else %}➕ Yangi talaba{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">💾 Saqlash</button>
+    </form>
+    <a href="{% url 'royxat' %}">← Ro'yxatga qaytish</a>
+</div>
+</body>
+</html>

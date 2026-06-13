@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>O'chirishni tasdiqlash</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 450px; margin: 80px auto; padding: 0 20px; background: #f0f2f5; }
+        .container { background: white; border-radius: 10px; padding: 35px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-top: 5px solid #e74c3c; }
+        h1 { color: #e74c3c; }
+        p { font-size: 17px; margin: 20px 0; color: #444; }
+        strong { color: #2c3e50; }
+        button { padding: 11px 28px; background: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 15px; }
+        button:hover { background: #c0392b; }
+        a { color: #2980b9; margin-left: 20px; font-size: 15px; text-decoration: none; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🗑 O'chirishni tasdiqlash</h1>
+    <p><strong>{{ object.ism }} {{ object.familiya }}</strong><br>ni o'chirishni xohlaysizmi?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Ha, o'chirish</button>
+    </form>
+    <a href="{% url 'royxat' %}">← Bekor qilish</a>
+</div>
+</body>
+</html>

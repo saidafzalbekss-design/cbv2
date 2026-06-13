@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Aloqa</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: 60px auto; padding: 0 20px; background: #f0f2f5; }
+        .container { background: white; border-radius: 10px; padding: 35px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        h1 { color: #16a085; margin-bottom: 25px; }
+        p { margin: 14px 0; }
+        label { font-weight: bold; display: block; margin-bottom: 5px; color: #444; }
+        input, textarea { width: 100%; padding: 9px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { margin-top: 20px; padding: 11px 28px; background: #16a085; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 15px; }
+        button:hover { background: #138d75; }
+        a { color: #2980b9; text-decoration: none; display: inline-block; margin-top: 15px; }
+        .success { background: #d4edda; color: #155724; padding: 10px 15px; border-radius: 5px; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>📩 Aloqa</h1>
+    {% if messages %}
+        {% for message in messages %}
+        <div class="success">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">📤 Yuborish</button>
+    </form>
+    <a href="{% url 'royxat' %}">← Ro'yxatga qaytish</a>
+</div>
+</body>
+</html>
